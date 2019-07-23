@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">First Name</label>
+        <input type="text" class="form-control"
+               formControlName="firstName"
+               #firstName/>
+      </div>
+      <div
+        *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['firstName'].errors.required">
+          First Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Last Name</label>
+        <input type="text" class="form-control"
+               formControlName="lastName"
+               #lastName/>
+      </div>
+      <div
+        *ngIf="angForm.controls['lastName'].invalid && (angForm.controls['lastName'].dirty || angForm.controls['lastName'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['lastName'].errors.required">
+          Last Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Address</label>
+        <textarea class="form-control" rows=7 cols="5"
+                  formControlName="address"
+                  #address></textarea>
+      </div>
+      <div
+        *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['address'].errors.required">
+          Address is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" (click)="addUser(angForm.value)"
+                [disabled]="angForm.pristine || angForm.invalid">
+          Create User
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

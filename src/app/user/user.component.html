@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-6">
+    <app-form (onSubmit)="submitUser($event)" [user]="user"></app-form>
+  </div>
+  <div class="col-md-6">
+    <app-list [users]="users" (editUserClick)="editClick($event)"></app-list>
+  </div>
+</div>
